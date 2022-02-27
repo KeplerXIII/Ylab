@@ -3,6 +3,7 @@ package lesson_1;
 import java.util.Arrays;
 
 public class Fibonacci {
+
     private long[] fibArray;
     // уменьшение кэша??
 
