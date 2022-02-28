@@ -1,6 +1,9 @@
 package lesson_1;
 
+import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Fibonacci {
 
@@ -30,6 +33,14 @@ public class Fibonacci {
         }
         printFibArray();
     }
+
+    public void streamBigInteger(int limit) {
+        Stream.iterate(new BigInteger[]{BigInteger.ZERO, BigInteger.ONE}, t -> new BigInteger[]{t[1], t[0].add(t[1])})
+                .map(t -> t[0])
+                .limit(limit)
+                .forEach(num -> System.out.print(num + ", "));
+    }
+
 
     private void printFibArray() {
         System.out.println(Arrays.toString(getFibArray()));
