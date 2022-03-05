@@ -1,4 +1,4 @@
-package lesson_1;
+package lesson_1_fibonacci;
 
 public class Main {
     public static void main(String[] args) {
