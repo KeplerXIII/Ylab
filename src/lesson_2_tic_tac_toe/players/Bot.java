@@ -1,4 +1,4 @@
-package lesson_2_tic_tac_toe;
+package lesson_2_tic_tac_toe.players;
 
 public class Bot {
     private String name;

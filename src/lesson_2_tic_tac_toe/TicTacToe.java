@@ -1,5 +1,9 @@
 package lesson_2_tic_tac_toe;
 
+import lesson_2_tic_tac_toe.players.Bot;
+import lesson_2_tic_tac_toe.players.Player;
+import lesson_2_tic_tac_toe.utils.CustomIO;
+
 import java.util.Random;
 import java.util.Scanner;
 
