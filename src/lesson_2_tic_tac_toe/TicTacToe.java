@@ -12,16 +12,17 @@ public class TicTacToe {
     private final char TAG_EMPTY = '-';
     private final char TAG_X = 'X';
     private final char TAG_O = 'O';
-    private static int countWins;
+    private static int countWins = 0;
+    private Scanner scanner = new Scanner(System.in);
+
 
     public TicTacToe(Player player, Bot bot) {
         this.player = player;
         this.bot = bot;
-        System.out.println("Создано игровое поле");
-        createEmptyGameBoardGrid();
     }
 
     public void run() {
+        createEmptyGameBoardGrid();
         showGameBoardGrid();
         while (true) {
             playerTurn();
@@ -30,6 +31,7 @@ public class TicTacToe {
                 countWins++;
                 System.out.println("Победил " + player.getName());
                 CustomIO.writeRates(player.getName() + " : " + countWins);
+                playAgainOrBreak();
                 break;
             }
             if (isGameBoardGridFullFilled()) {
@@ -42,6 +44,7 @@ public class TicTacToe {
                 countWins++;
                 System.out.println("Победил " + bot.getName());
                 CustomIO.writeRates(bot.getName() + " : " + countWins);
+                playAgainOrBreak();
                 break;
             }
             if (isGameBoardGridFullFilled()) {
@@ -49,6 +52,19 @@ public class TicTacToe {
                 break;
             }
         }
+    }
+
+    private void playAgainOrBreak() {
+        System.out.println("Хотите сыграть еще раз? (да, нет)");
+        String answer;
+        do {
+            answer = scanner.nextLine();
+            if (answer.equals("да")) {
+                run();
+            } else if (answer.equals("нет")) {
+                return;
+            }
+        } while (!answer.equals("да"));
     }
 
     private void createEmptyGameBoardGrid() {
@@ -72,7 +88,6 @@ public class TicTacToe {
     }
 
     private void playerTurn() {
-        Scanner scanner = new Scanner(System.in);
         int x;
         int y;
         do {
