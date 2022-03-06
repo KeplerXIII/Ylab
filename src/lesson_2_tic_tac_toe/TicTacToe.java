@@ -122,7 +122,7 @@ public class TicTacToe {
     }
 
     /**
-     * Проверка победы
+     * Проверка победы со смещением
      */
     private boolean checkWinner(char dotSymbol) {
         int endOfShift = gameBoardGrid.length - TAG_COUNT_TO_WIN;
@@ -140,7 +140,7 @@ public class TicTacToe {
     }
 
     /**
-     * Проверка линий на заполненность
+     * Проверка линий на заполненность со смещением
      */
     private boolean checkFilledLines(char dotSymbol, int lineShift, int columnShift) {
         for (int line = lineShift; line < (TAG_COUNT_TO_WIN + lineShift); line++) {
