@@ -4,9 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class CustomIO {
-    /**
-     * append true - добавляет в конец файла
-     */
     public static void writeRates(String text) {
         try (FileWriter writer = new FileWriter("src/lesson_2_tic_tac_toe/rating.txt", true)) {
             writer.write(text);
