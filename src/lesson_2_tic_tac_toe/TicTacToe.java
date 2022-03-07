@@ -128,14 +128,14 @@ public class TicTacToe {
     /**
      * Проверка победы со смещением
      */
-    private boolean checkWinner(char dotSymbol) {
+    private boolean checkWinner(char tagSymbol) {
         int endOfShift = gameBoardGrid.length - TAG_COUNT_TO_WIN;
         for (int lineShift = 0; lineShift <= endOfShift; lineShift++) {
-            if (checkFilledDiagonals(dotSymbol, lineShift)) {
+            if (checkFilledDiagonals(tagSymbol, lineShift)) {
                 return true;
             }
             for (int columnShift = 0; columnShift <= endOfShift; columnShift++) {
-                if (checkFilledLines(dotSymbol, lineShift, columnShift)) {
+                if (checkFilledLines(tagSymbol, lineShift, columnShift)) {
                     return true;
                 }
             }
@@ -146,17 +146,17 @@ public class TicTacToe {
     /**
      * Проверка линий на заполненность со смещением
      */
-    private boolean checkFilledLines(char dotSymbol, int lineShift, int columnShift) {
+    private boolean checkFilledLines(char tagSymbol, int lineShift, int columnShift) {
         for (int line = lineShift; line < (TAG_COUNT_TO_WIN + lineShift); line++) {
             int horizontalLineCount = 0;
             int verticalLineCount = 0;
             for (int column = columnShift; column < (TAG_COUNT_TO_WIN + columnShift); column++) {
                 // проверка горизонтали
-                if (gameBoardGrid[line][column] == dotSymbol) {
+                if (gameBoardGrid[line][column] == tagSymbol) {
                     horizontalLineCount++;
                 }
                 // проверка вертикали
-                if (gameBoardGrid[column][line] == dotSymbol) {
+                if (gameBoardGrid[column][line] == tagSymbol) {
                     verticalLineCount++;
                 }
             }
@@ -170,15 +170,15 @@ public class TicTacToe {
     /**
      * Проверка диагоналей на заполненность
      */
-    private boolean checkFilledDiagonals(char dotSymbol, int lineShift) {
+    private boolean checkFilledDiagonals(char tagSymbol, int lineShift) {
         int mainDiagonalCount = 0;
         int sideDiagonalCount = 0;
         int subArrayLength = (TAG_COUNT_TO_WIN + lineShift);
         for (int line = lineShift; line < subArrayLength; line++) {
-            if (gameBoardGrid[line][line] == dotSymbol) {
+            if (gameBoardGrid[line][line] == tagSymbol) {
                 mainDiagonalCount++;
             }
-            if (gameBoardGrid[line][gameBoardGrid.length - 1 - line] == dotSymbol) {
+            if (gameBoardGrid[line][gameBoardGrid.length - 1 - line] == tagSymbol) {
                 sideDiagonalCount++;
             }
         }
